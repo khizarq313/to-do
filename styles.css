@@ -18,7 +18,7 @@ body {
 
 header{
   width: 100vw;
-  height: 40vh;
+  height: 45vh;
   background-image: url('images/bg-desktop-dark.jpg');
   background-position: center;
   background-repeat: no-repeat; 
@@ -100,7 +100,7 @@ span:hover{
   box-shadow: 0px 0px 10px 2px black;
   background-color: hsl(235, 24%, 19%);
   position: fixed;
-  top: 45%;
+  top: 50%;
   left: 50%;
   margin-top: -10vh; 
   margin-left: -10vw;
@@ -113,7 +113,7 @@ span:hover{
   background-color: hsl(235, 24%, 19%);
   border-radius: 8px;
   position: fixed;
-  top: 35%;
+  top: 40%;
   left: 50%;
   margin-top: -10vh; 
   margin-left: -10vw;
@@ -234,13 +234,14 @@ span:hover{
 @media screen and (max-width:600px) {
   .task-input-panel{
     left: 25%;
-    top:40% ;
+    top:45% ;
 }
 .task-container{
   left: 25%;
-  top: 50%;
+  top: 55%;
 }
   header{
+    height: 50vh;
     background-image: url("images/bg-mobile-dark.jpg");
   }
   .header-light-wallpaper{
