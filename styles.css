@@ -253,6 +253,12 @@ span:hover{
   html{
     font-size: 55%;
   } 
+  .task-input-panel{
+    top:45% ;
+}
+.task-container{
+  top: 55%;
+}
 }
 
 @media screen and (max-width:450px) {
