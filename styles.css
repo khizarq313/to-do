@@ -234,9 +234,11 @@ span:hover{
 @media screen and (max-width:600px) {
   .task-input-panel{
     left: 25%;
+    top:40% ;
 }
 .task-container{
   left: 25%;
+  top: 50%;
 }
   header{
     background-image: url("images/bg-mobile-dark.jpg");
