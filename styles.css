@@ -1,0 +1,266 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  background-color: hsl(235, 21%, 11%);
+  font-size: 20px;
+  position: relative;
+}
+
+header{
+  width: 100vw;
+  height: 40vh;
+  background-image: url('images/bg-desktop-dark.jpg');
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+button:hover{
+  opacity: 0.7;
+}
+
+input{
+  background-color: transparent;
+  color: white;
+  height: 26px;
+  border: none;
+  padding: 0px 10px;
+  font-size: 20px;
+  width: 90%;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+svg{
+  height: 26px;
+  width: 26px;
+}
+
+h3{
+  text-align: center;
+  font-weight: 100;
+  padding: 5px;
+}
+
+hr{
+  border: 1px solid hsl(235, 21%, 11%);
+}
+
+ul{
+  max-height: 50vh;
+  overflow-y: scroll;
+  scrollbar-color: red blue;
+}
+
+li{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  padding: 5px;
+}
+
+span{
+  height: 27px;
+  width: 27px;
+}
+
+span:hover{
+  opacity: 0.8;
+}
+
+.task-container{
+  padding-top: 10px;
+  border-radius: 8px;
+  width: 35rem;
+  box-shadow: 0px 0px 10px 2px black;
+  background-color: hsl(235, 24%, 19%);
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -10vh; 
+  margin-left: -10vw;
+}
+
+
+.task-input-panel{
+  display: flex;
+  width: 35rem;
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 8px;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  margin-top: -10vh; 
+  margin-left: -10vw;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 2px black;
+}
+
+.InputInListItem{
+  text-align: left;
+  width: 80%;
+  word-break: break-all;
+  padding: 0px 10px ;
+}
+
+.activity-track-panel{
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 0 0 8px 8px;
+}
+
+.complete-button-holder{
+  display: block;
+  border-radius: 100%;
+  border: 1px solid hsl(235, 21%, 11%);
+  line-height: 0%;
+}
+
+.complete-button{
+  opacity: 0;
+}
+
+.enter-button-holder:hover{
+  opacity: 0.7;
+}
+
+.innerLI{
+  word-wrap: break-word;
+}
+
+.user-task-element{
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid hsl(231, 12%, 32%);
+}
+
+.sun{
+  font-size: 30px;
+}
+
+.moon{
+  display: none;
+  font-size: 30px;
+}
+
+.header-light-wallpaper{
+  background-image: url('images/bg-desktop-light.jpg');
+  color: white;
+}
+
+.bg-light-theme{
+  background-color: hsl(0, 0%, 98%);
+  color: #000;
+}
+
+.btn-light-theme{
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+  opacity: 1;
+}
+
+
+
+@media screen and (max-width:1600px) {
+    .task-input-panel{
+      left: 45%;
+  }
+  .task-container{
+    left: 45%;
+  }
+} 
+
+@media screen and (max-width:1100px) {
+  .task-input-panel{
+    left: 40%;
+}
+.task-container{
+  left: 40%;
+}
+} 
+
+@media screen and (max-width:800px) {
+  .task-input-panel{
+    left: 35%;
+}
+.task-container{
+  left: 35%;
+}
+} 
+
+
+@media screen and (max-width:700px) {
+  .task-input-panel{
+    left: 30%;
+}
+.task-container{
+  left: 30%;
+}
+} 
+
+@media screen and (max-width:600px) {
+  .task-input-panel{
+    left: 25%;
+}
+.task-container{
+  left: 25%;
+}
+  header{
+    background-image: url("images/bg-mobile-dark.jpg");
+  }
+  .header-light-wallpaper{
+    background-image: url("images/bg-mobile-light.jpg");
+  }
+} 
+
+
+@media screen and (max-width:500px) {
+  html{
+    font-size: 55%;
+  } 
+}
+
+@media screen and (max-width:450px) {
+  html{
+    font-size: 50%;
+  } 
+}
+
+@media screen and (max-width:400px) {
+  html{
+    font-size: 45%;
+  } 
+}
