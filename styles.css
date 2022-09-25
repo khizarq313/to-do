@@ -24,10 +24,15 @@ header{
   background-repeat: no-repeat; 
   background-size: cover;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
-  font-size: 25px;
-  letter-spacing: 10px;
+  justify-content: center;
+}
+
+main{
+  margin-top: -5rem;
+  display: flex;
+  justify-content: center;
 }
 
 button{
@@ -71,7 +76,7 @@ hr{
 }
 
 ul{
-  max-height: 50vh;
+  max-height: 30vh;
   overflow-y: scroll;
   scrollbar-color: red blue;
 }
@@ -93,32 +98,33 @@ span:hover{
   opacity: 0.8;
 }
 
+.title-container{
+  width: 40rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
 .task-container{
   padding-top: 10px;
-  border-radius: 8px;
-  width: 35rem;
-  box-shadow: 0px 0px 10px 2px black;
+  border-radius: 4px;
+  width: 40rem;
+  box-shadow: 0px 0px 6px 1px black;
   background-color: hsl(235, 24%, 19%);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -10vh; 
-  margin-left: -10vw;
 }
 
 
 .task-input-panel{
+  z-index: 100;
+  margin-top: 4rem;
   display: flex;
-  width: 35rem;
+  width:40rem;
   background-color: hsl(235, 24%, 19%);
-  border-radius: 8px;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  margin-top: -10vh; 
-  margin-left: -10vw;
+  border-radius: 4px;
   padding: 10px;
-  box-shadow: 0px 0px 10px 2px black;
+  box-shadow: 0px 0px 6px 1px black;
 }
 
 .InputInListItem{
@@ -192,54 +198,7 @@ span:hover{
   opacity: 1;
 }
 
-
-
-@media screen and (max-width:1600px) {
-    .task-input-panel{
-      left: 45%;
-  }
-  .task-container{
-    left: 45%;
-  }
-} 
-
-@media screen and (max-width:1100px) {
-  .task-input-panel{
-    left: 40%;
-}
-.task-container{
-  left: 40%;
-}
-} 
-
-@media screen and (max-width:800px) {
-  .task-input-panel{
-    left: 35%;
-}
-.task-container{
-  left: 35%;
-}
-} 
-
-
-@media screen and (max-width:700px) {
-  .task-input-panel{
-    left: 30%;
-}
-.task-container{
-  left: 30%;
-}
-} 
-
-@media screen and (max-width:600px) {
-  .task-input-panel{
-    left: 25%;
-    top:45% ;
-}
-.task-container{
-  left: 25%;
-  top: 55%;
-}
+ @media screen and (max-width:650px) {
   header{
     height: 50vh;
     background-image: url("images/bg-mobile-dark.jpg");
@@ -249,27 +208,14 @@ span:hover{
   }
 } 
 
-
-@media screen and (max-width:500px) {
+@media screen and (max-width:550px) {
   html{
     font-size: 55%;
-  } 
-  .task-input-panel{
-    top:45% ;
-}
-.task-container{
-  top: 55%;
-}
-}
+  }
+} 
 
 @media screen and (max-width:450px) {
   html{
     font-size: 50%;
-  } 
-}
-
-@media screen and (max-width:400px) {
-  html{
-    font-size: 45%;
-  } 
-}
+  }
+} 
