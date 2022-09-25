@@ -62,10 +62,10 @@ function clearUserInput() {
   isComplete = false;
 }
 
-function createTaskLi(taskText, taskStatus,taskId) {
+function createTaskLi(taskText, taskStatus, taskId) {
   const id = taskId;
   const newTaskLi = document.createElement("li");
-  newTaskLi.id = id ;
+  newTaskLi.id = id;
   const taskTitle = document.createElement("h3");
   const taskStatusIconHolder = document.createElement("span");
   const taskStatusIcon = document.createElement("span");
@@ -93,42 +93,47 @@ function createTaskLi(taskText, taskStatus,taskId) {
   taskStatusIconHolder.append(taskStatusIcon);
 
   taskStatusIconHolder.addEventListener("click", () => {
-    taskStatusIcon.classList.toggle("hidden"); 
-      const toggledElement =  allListItems.find((element) => {
-        return element.id === id;  });
+    taskStatusIcon.classList.toggle("hidden");
+    const toggledElement = allListItems.find((element) => {
+      return element.id === id;
+    });
 
-  if (toggledElement.status) {
-    toggledElement.status = false;
-    activeListItems.push(toggledElement);
-    completedListItems.pop(toggledElement);
-  } else {
-    toggledElement.status = true;
-    completedListItems.push(toggledElement);
-    activeListItems.pop(toggledElement);
-  }
-  switch (currentPanel) {
-    case "all":
-      allPanelOutput();
-      break;
-    case "active":
-      activePanelOutput();
-      break;
-    case "completed":
-      completedPanelOutput();
-      break;
-    default:
-      allPanelOutput();
-  }
-
+    const indexOfActiveListItem = activeListItems.indexOf(toggledElement);
+    const indexOfCompletedListItem = completedListItems.indexOf(toggledElement);
+    if (toggledElement.status) {
+      toggledElement.status = false;
+      activeListItems.push(toggledElement);
+      completedListItems.splice(indexOfCompletedListItem, 1);
+    } else {
+      toggledElement.status = true;
+      completedListItems.push(toggledElement);
+      activeListItems.splice(indexOfActiveListItem, 1);
+    }
+    switch (currentPanel) {
+      case "all":
+        allPanelOutput();
+        break;
+      case "active":
+        activePanelOutput();
+        break;
+      case "completed":
+        completedPanelOutput();
+        break;
+      default:
+        allPanelOutput();
+    }
   });
 
   deleteBtn.addEventListener("click", () => {
+    const indexOfToggledElement = allListItems.findIndex((element) => {
+      return element.id === id;
+    });
     if (taskStatus) {
-      completedListItems.pop();
+      completedListItems.splice(indexOfToggledElement, 1);
     } else {
-      activeListItems.pop();
+      activeListItems.splice(indexOfToggledElement, 1);
     }
-    allListItems.pop();
+    allListItems.splice(indexOfToggledElement, 1);
     newTaskLi.remove();
     listDiscriptionHandler();
   });
@@ -192,7 +197,7 @@ function allPanel() {
 function allPanelOutput() {
   unOrderList.replaceChildren();
   allListItems.forEach((listItem) => {
-    createTaskLi(listItem.value, listItem.status,listItem.id);
+    createTaskLi(listItem.value, listItem.status, listItem.id);
   });
   listDiscriptionHandler();
   currentPanel = "all";
@@ -212,7 +217,7 @@ function activePanel() {
 function activePanelOutput() {
   unOrderList.replaceChildren();
   activeListItems.forEach((listItem) => {
-      createTaskLi(listItem.value, listItem.status,listItem.id);
+    createTaskLi(listItem.value, listItem.status, listItem.id);
   });
   listDiscriptionHandler();
   currentPanel = "active";
@@ -229,11 +234,10 @@ function completedPanel() {
   }
 }
 
-
 function completedPanelOutput() {
   unOrderList.replaceChildren();
   completedListItems.forEach((listItem) => {
-      createTaskLi(listItem.value, listItem.status,listItem.id);
+    createTaskLi(listItem.value, listItem.status, listItem.id);
   });
   listDiscriptionHandler();
   currentPanel = "completed";
