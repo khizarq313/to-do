@@ -200,11 +200,13 @@ span:hover{
 
  @media screen and (max-width:650px) {
   header{
-    height: 50vh;
     background-image: url("images/bg-mobile-dark.jpg");
   }
   .header-light-wallpaper{
     background-image: url("images/bg-mobile-light.jpg");
+  }
+  .task-input-panel{
+    margin-top: 5rem;
   }
 } 
 
@@ -212,10 +214,7 @@ span:hover{
   html{
     font-size: 55%;
   }
-} 
-
-@media screen and (max-width:450px) {
-  html{
-    font-size: 50%;
+  header{
+    height: 40vh;
   }
 } 
