@@ -49,10 +49,24 @@ function taskCompleteToggle() {
 }
 
 function listDiscriptionHandler() {
-  if (unOrderList.children.length === 0) {
-    listDiscription.classList.remove("hidden");
-  } else {
-    listDiscription.classList.add("hidden");
+  if (currentPanel === "all") {
+    if (allListItems.length === 0) {
+      listDiscription.classList.remove("hidden");
+    } else {
+      listDiscription.classList.add("hidden");
+    }
+  }else if (currentPanel === "active") {
+    if (activeListItems.length === 0) {
+      listDiscription.classList.remove("hidden");
+    }else {
+      listDiscription.classList.add("hidden");
+    }
+  }else if (currentPanel === "completed") {
+    if (completedListItems.length === 0) {
+      listDiscription.classList.remove("hidden");
+    }else {
+      listDiscription.classList.add("hidden");
+    }
   }
 }
 
@@ -75,7 +89,7 @@ function createTaskLi(taskText, taskStatus, taskId) {
   taskTitle.innerHTML = `${taskText}`;
   taskStatusIconHolder.className = "complete-button-holder";
   taskStatusIcon.className = "hidden";
-  taskStatusIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><linearGradient xmlns="http://www.w3.org/2000/svg" id="linear-gradient" gradientUnits="userSpaceOnUse" x1="-1.28" x2="19.382" y1="26.729" y2="3.812"><stop offset="0" stop-color="#119990"></stop><stop offset="1" stop-color="#EE82EE"></stop></linearGradient><path xmlns="http://www.w3.org/2000/svg" d="m12 1a11 11 0 1 0 11 11 11.013 11.013 0 0 0 -11-11zm4.707 9.207-5 5a1 1 0 0 1 -1.414 0l-3-3a1 1 0 1 1 1.414-1.414l2.293 2.293 4.293-4.293a1 1 0 0 1 1.414 1.414z" fill="url(#linear-gradient)" data-original="url(#linear-gradient)" class=""></path></g></svg>`;
+  taskStatusIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><linearGradient xmlns="http://www.w3.org/2000/svg" id="linear-gradient" gradientUnits="userSpaceOnUse" x1="-1.28" x2="19.382" y1="26.729" y2="3.812"><stop offset="0" stop-color="#119990"></stop><stop offset="1" stop-color="#EE82EE"></stop></linearGradient><path xmlns="http://www.w3.org/2000/svg" d="m12 1a11 11 0 1 0 11 11 11.013 11.013 0 0 0 -11-11zm4.707 9.207-5 5a1 1 0 0 1 -1.414 0l-3-3a1 1 0 1 1 1.414-1.414l2.293 2.293 4.293-4.293a1 1 0 0 1 1.414 1.414z" fill="url(#linear-gradient)" data-original="url(#linear-gradient)" class=""></path></g></svg>`;
   if (taskStatus) {
     taskStatusIcon.classList.remove("hidden");
     taskTitle.classList.add("highlight");
@@ -85,7 +99,7 @@ function createTaskLi(taskText, taskStatus, taskId) {
   }
 
   deleteBtn.innerHTML = `<span">
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><linearGradient xmlns="http://www.w3.org/2000/svg" id="linear-gradient" gradientUnits="userSpaceOnUse" x1="1" x2="31" y1="16" y2="16"><stop offset="0" stop-color="#119990"></stop><stop offset="1" stop-color="#EE82EE"></stop></linearGradient><g xmlns="http://www.w3.org/2000/svg" id="Layer_3" data-name="Layer 3"><path d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm5.707 19.293a1 1 0 1 1 -1.414 1.414l-4.293-4.293-4.293 4.293a1 1 0 0 1 -1.414-1.414l4.293-4.293-4.293-4.293a1 1 0 0 1 1.414-1.414l4.293 4.293 4.293-4.293a1 1 0 0 1 1.414 1.414l-4.293 4.293z" fill="url(#linear-gradient)" data-original="url(#linear-gradient)" class=""></path></g></g></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"   viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><linearGradient xmlns="http://www.w3.org/2000/svg" id="linear-gradient" gradientUnits="userSpaceOnUse" x1="1" x2="31" y1="16" y2="16"><stop offset="0" stop-color="#119990"></stop><stop offset="1" stop-color="#EE82EE"></stop></linearGradient><g xmlns="http://www.w3.org/2000/svg" id="Layer_3" data-name="Layer 3"><path d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm5.707 19.293a1 1 0 1 1 -1.414 1.414l-4.293-4.293-4.293 4.293a1 1 0 0 1 -1.414-1.414l4.293-4.293-4.293-4.293a1 1 0 0 1 1.414-1.414l4.293 4.293 4.293-4.293a1 1 0 0 1 1.414 1.414l-4.293 4.293z" fill="url(#linear-gradient)" data-original="url(#linear-gradient)" class=""></path></g></g></svg>
     </span>`;
 
   unOrderList.prepend(newTaskLi);
@@ -94,36 +108,27 @@ function createTaskLi(taskText, taskStatus, taskId) {
   newTaskLi.prepend(taskStatusIconHolder);
   taskStatusIconHolder.append(taskStatusIcon);
 
-  taskStatusIconHolder.addEventListener("click", () => {
+  taskStatusIconHolder.addEventListener("click", (e) => {
     taskStatusIcon.classList.toggle("hidden");
     const toggledElement = allListItems.find((element) => {
       return element.id === id;
     });
-
     const indexOfActiveListItem = activeListItems.indexOf(toggledElement);
     const indexOfCompletedListItem = completedListItems.indexOf(toggledElement);
     if (toggledElement.status) {
-      toggledElement.status = false;
-      activeListItems.push(toggledElement);
+      activeListItems.splice(0,0,toggledElement);
       completedListItems.splice(indexOfCompletedListItem, 1);
+      toggledElement.status = false;
     } else {
-      toggledElement.status = true;
-      completedListItems.push(toggledElement);
+      completedListItems.splice(0,0,toggledElement);
       activeListItems.splice(indexOfActiveListItem, 1);
+      toggledElement.status = true;
     }
-    switch (currentPanel) {
-      case "all":
-        allPanelOutput();
-        break;
-      case "active":
-        activePanelOutput();
-        break;
-      case "completed":
-        completedPanelOutput();
-        break;
-      default:
-        allPanelOutput();
+    let currentList = e.target.closest("li");
+    if (currentPanel !== "all") {
+      currentList.classList.add("hidden");
     }
+    listDiscriptionHandler();
   });
 
   deleteBtn.addEventListener("click", () => {
@@ -201,8 +206,8 @@ function allPanelOutput() {
   allListItems.forEach((listItem) => {
     createTaskLi(listItem.value, listItem.status, listItem.id);
   });
-  listDiscriptionHandler();
   currentPanel = "all";
+  listDiscriptionHandler();
 }
 
 function activePanel() {
@@ -221,8 +226,8 @@ function activePanelOutput() {
   activeListItems.forEach((listItem) => {
     createTaskLi(listItem.value, listItem.status, listItem.id);
   });
-  listDiscriptionHandler();
   currentPanel = "active";
+  listDiscriptionHandler();
 }
 
 function completedPanel() {
@@ -241,8 +246,8 @@ function completedPanelOutput() {
   completedListItems.forEach((listItem) => {
     createTaskLi(listItem.value, listItem.status, listItem.id);
   });
-  listDiscriptionHandler();
   currentPanel = "completed";
+  listDiscriptionHandler();
 }
 
 function inputTaskWithEnterKey(event) {
