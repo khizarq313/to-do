@@ -110,6 +110,7 @@ function createTaskLi(taskText, taskStatus, taskId) {
 
   taskStatusIconHolder.addEventListener("click", (e) => {
     taskStatusIcon.classList.toggle("hidden");
+    taskTitle.classList.toggle("highlight");
     const toggledElement = allListItems.find((element) => {
       return element.id === id;
     });
